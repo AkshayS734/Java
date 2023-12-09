@@ -1,27 +1,22 @@
-import java.util.*;
 public class InsertionSort {
-    public static void insertion(int[] arr){
-        for(int i=0;i<arr.length-1;i++){
-            for(int j=i+1;j>0;j--){
-                if(arr[j]<arr[j-1]){
-                    int temp=arr[j];
-                    arr[j]=arr[j-1];
-                    arr[j-1]=temp;
-                }
-            }
+    public static void main(String[] args) {
+        int[] arr = { 5, 4, 3, 2, 1 };
+        insertionSort(arr);
+        for (int val : arr) {
+            System.out.print(val + " ");
         }
     }
-    public static void main(String[] args) {
-        Scanner in=new Scanner(System.in);
-        System.out.print("Enter the numbers of element in array :");
-        int len=in.nextInt();
-        int[] arr=new int[len];
-        System.out.println("Enter the elements in array :");
-        for(int i=0;i<len;i++){
-            arr[i]=in.nextInt();
+
+    public static void insertionSort(int[] arr) {
+        // write your code here
+        for (int i = 1; i < arr.length; i++) {
+            int j = i - 1;
+            int temp = arr[i];
+            while (j >= 0 && arr[j]>temp){
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = temp;
         }
-        insertion(arr);
-        System.out.println(Arrays.toString(arr));
-        in.close();
     }
 }
